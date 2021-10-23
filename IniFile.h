@@ -16,44 +16,44 @@ public:
 	void save(std::string path) const;
 
 	/**
-	 * Считывает из секции section
-	 * значение ключа key
-	 * Если не удалось считать - возвращает default value
+	 * РЎС‡РёС‚С‹РІР°РµС‚ РёР· СЃРµРєС†РёРё section
+	 * Р·РЅР°С‡РµРЅРёРµ РєР»СЋС‡Р° key
+	 * Р•СЃР»Рё РЅРµ СѓРґР°Р»РѕСЃСЊ СЃС‡РёС‚Р°С‚СЊ - РІРѕР·РІСЂР°С‰Р°РµС‚ default value
 	 *
-	 * Определить для std::string, int, float, bool
+	 * РћРїСЂРµРґРµР»РёС‚СЊ РґР»СЏ std::string, int, float, bool
 	 */
 	template<typename T>
 	T read(std::string section, std::string key, T defaultValue = T{}) const;
 
 	/**
-	 * В ключ key из секции section
-	 * записывает значение value
+	 * Р’ РєР»СЋС‡ key РёР· СЃРµРєС†РёРё section
+	 * Р·Р°РїРёСЃС‹РІР°РµС‚ Р·РЅР°С‡РµРЅРёРµ value
 	 *
-	 * Определить для std::string, int, float, bool
+	 * РћРїСЂРµРґРµР»РёС‚СЊ РґР»СЏ std::string, int, float, bool
 	 */
 	template<typename T>
 	void write(std::string section, std::string key, T value);
 
 	/**
-	 * Проверяет, существует ли секция section
+	 * РџСЂРѕРІРµСЂСЏРµС‚, СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё СЃРµРєС†РёСЏ section
 	 */
 	bool sectionExists(std::string section) const;
 
 	/**
-	 * Проверяет, существует ли ключ key в секции section
+	 * РџСЂРѕРІРµСЂСЏРµС‚, СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё РєР»СЋС‡ key РІ СЃРµРєС†РёРё section
 	 */
 	bool keyExists(std::string section, std::string key) const;
 
 	/**
-	 * Возвращает существующие секции
+	 * Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ СЃРµРєС†РёРё
 	 */
 	std::vector<std::string> sections() const;
 
 	/**
-	 * Возвращает существующие ключи в секции section
+	 * Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ РєР»СЋС‡Рё РІ СЃРµРєС†РёРё section
 	 */
 	std::vector<std::string> keys(std::string section) const;
 };
 
 // true -  true, True, TRUE, on, On, ON, yes, Yes, YES, y, Y, 1
-// false - остальные
+// false - РѕСЃС‚Р°Р»СЊРЅС‹Рµ
