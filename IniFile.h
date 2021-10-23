@@ -55,6 +55,5 @@ public:
 	std::vector<std::string> keys(std::string section) const;
 };
 
-
 // true -  true, True, TRUE, on, On, ON, yes, Yes, YES, y, Y, 1
 // false - остальные
