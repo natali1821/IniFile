@@ -28,6 +28,9 @@ IniFile::IniFile(std::string path) {
 	std::string key;
 	std::string value;
 	for (size_t i = 0; i < strings.size(); ++i) {
+		if (strings[i][strings[i].size() - 1] == '\r') {
+				strings[i].erase(strings[i].size() - 1);
+		}
 		size_t last = strings[i].size() - 1; // number of the last element of string
 		size_t first = 0;
 		if (strings[i][0] == '[' && strings[i][last] == ']') {
@@ -41,9 +44,6 @@ IniFile::IniFile(std::string path) {
 			++first;
 			last = strings[i].size() - 1;
 			value = strings[i].substr(first, last);
-			if (value[value.size() - 1] == '\r') {
-				value.erase(value.size() - 1);
-			}
 			_data.at(section).insert(std::pair<std::string, std::string>(key, value));
 		}
 	}
