@@ -34,7 +34,7 @@ IniFile::IniFile(std::string path) {
 			section = strings[i].substr(1, last - 1);
 			_data.insert(std::pair<std::string, std::map<std::string, std::string>>(section, {}));
 		}
-		else if (!strings[i].empty()) {
+		else {
 			last = strings[i].find('='); // number of the '='
 			key = strings[i].substr(0, last);
 			first = last;
