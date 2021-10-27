@@ -1,4 +1,4 @@
-﻿#include "IniFile.h"
+#include "IniFile.h"
 
 std::string immutableToLower(std::string s) {
 	std::string str = s.substr(0, s.size());
@@ -34,13 +34,16 @@ IniFile::IniFile(std::string path) {
 			section = strings[i].substr(1, last - 1);
 			_data.insert(std::pair<std::string, std::map<std::string, std::string>>(section, {}));
 		}
-		else {
+		else if (!strings[i].empty()) {
 			last = strings[i].find('='); // number of the '='
 			key = strings[i].substr(0, last);
 			first = last;
 			++first;
 			last = strings[i].size() - 1;
 			value = strings[i].substr(first, last);
+			if (value[value.size() - 1] == '\r') {
+				value.erase(value.size() - 1);
+			}
 			_data.at(section).insert(std::pair<std::string, std::string>(key, value));
 		}
 	}
