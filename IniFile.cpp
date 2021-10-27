@@ -29,7 +29,7 @@ IniFile::IniFile(std::string path) {
 	std::string value;
 	for (size_t i = 0; i < strings.size(); ++i) {
 		if (strings[i][strings[i].size() - 1] == '\r') {
-				strings[i].erase(strings[i].size() - 1);
+			strings[i].erase(strings[i].size() - 1);
 		}
 		size_t last = strings[i].size() - 1; // number of the last element of string
 		size_t first = 0;
